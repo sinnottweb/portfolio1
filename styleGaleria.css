@@ -54,8 +54,8 @@
 }
 
 .thumbnail {
-  width: calc(25% - 15px); /* 4 columns on desktop */
-  min-width: 250px;
+  width: calc(33.333% - 14px); /* 3 columns on desktop */
+  min-width: 280px;
   aspect-ratio: 3/2;
   overflow: hidden;
   border-radius: 8px;

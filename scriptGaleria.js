@@ -38,7 +38,7 @@ const galleryData = [
 // Variables globales
 let currentCategory = 'all';  // Categoría por defecto
 let currentPage = 1;
-const itemsPerPage = 8;
+const itemsPerPage = 6;
 
 // Elementos del DOM
 const galleryContainer = document.querySelector('.gallery-items');
