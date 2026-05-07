@@ -52,7 +52,9 @@ const translations = {
         
         formSuccess: "¡Mensaje enviado con éxito!",
         formError: "Hubo un error al enviar el mensaje. Intentalo de nuevo.",
-        formSending: "Enviando..."
+        formSending: "Enviando...",
+        formInvalid: "Por favor, completa todos los campos correctamente.",
+        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/"
     },
     en: {
         navHome: "Home",
@@ -107,7 +109,9 @@ const translations = {
 
         formSuccess: "Message sent successfully!",
         formError: "There was an error sending the message. Please try again.",
-        formSending: "Sending..."
+        formSending: "Sending...",
+        formInvalid: "Please fill in all fields correctly.",
+        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/?locale=en-US"
     }
 };
 
@@ -141,6 +145,14 @@ function setLanguage(lang, event) {
         const key = element.getAttribute('data-i18n-placeholder');
         if (placeholders[currentLang][key]) {
             element.setAttribute('placeholder', placeholders[currentLang][key]);
+        }
+    });
+
+    // Update hrefs
+    document.querySelectorAll('[data-i18n-href]').forEach(element => {
+        const key = element.getAttribute('data-i18n-href');
+        if (translations[currentLang][key]) {
+            element.setAttribute('href', translations[currentLang][key]);
         }
     });
 

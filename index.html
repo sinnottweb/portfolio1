@@ -184,10 +184,8 @@
                         <div class="col-lg-12">
                             <div class="header-social-icon">
                                 <ul>
-                                    <li><a href="https://www.instagram.com/sinnott.psd" target="_blank"><i class="lni-instagram-original"></i></a></li>
-                                    <li><a  href="https://www.youtube.com/channel/UChnajcnTA9YuFVIUZNisuwA" target="_blank"><i class="lni lni-youtube"></i></a></li>
-                                    <li><a href="https://www.behance.net/matisinnott" target="_blank"><i class="lni-behance-original"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/in/matias-sinnott-b9a586184/" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+                                    <li><a href="https://www.instagram.com/matisinnott/" target="_blank"><i class="lni-instagram-original"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/matias-sinnott/" target="_blank" data-i18n-href="linkedinLink"><i class="lni-linkedin-original"></i></a></li>
                                 </ul>
                             </div> <!-- header social -->
                         </div>
@@ -604,10 +602,8 @@
                             </a>
                             <p class="mt-" data-i18n="footerDesc">Te invito a seguir mi trabajo en las diferentes redes sociales, si tenes alguna consulta podés enviarme un mensaje cuando lo desees.</p>
                             <ul>
-                                <li><a href="https://www.instagram.com/sinnott.psd" target="_blank"><i class="lni lni-instagram"></i></a></li>
-                                <li><a href="https://www.youtube.com/channel/UChnajcnTA9YuFVIUZNisuwA" target="_blank"><i class="lni lni-youtube"></i></a></li>
-                                <li><a href="https://www.behance.net/matisinnott" target="_blank"><i class="lni lni-behance-original"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/matias-sinnott-b9a586184/" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+                                <li><a href="https://www.instagram.com/matisinnott/" target="_blank"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/matias-sinnott/" target="_blank" data-i18n-href="linkedinLink"><i class="lni-linkedin-original"></i></a></li>
                             </ul>
                         </div> <!-- footer content -->
                     </div>
@@ -681,8 +677,28 @@
             const messageElement = form.querySelector('.form-message');
             const submitBtn = form.querySelector('button[type="submit"]');
             
-            // Mostrar mensaje de enviando
-            messageElement.innerHTML = translations[currentLang].formSending;
+            // Obtener idioma y traducciones de forma segura
+            const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
+            const texts = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : {
+                formSending: "Enviando...",
+                formSuccess: "¡Mensaje enviado!",
+                formError: "Error al enviar",
+                formInvalid: "Completá todos los campos"
+            };
+
+            // Validación manual rápida
+            const nombre = form.querySelector('#nombre').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const mensaje = form.querySelector('#mensaje').value.trim();
+
+            if (!nombre || !email || !mensaje) {
+                messageElement.innerHTML = texts.formInvalid;
+                messageElement.style.color = "red";
+                return;
+            }
+
+            // Iniciar envío
+            messageElement.innerHTML = texts.formSending;
             messageElement.style.color = "#f77e4f";
             submitBtn.disabled = true;
 
@@ -701,16 +717,17 @@
             .then(response => response.json())
             .then(res => {
                 if (res.success === "true" || res.success === true) {
-                    messageElement.innerHTML = translations[currentLang].formSuccess;
+                    messageElement.innerHTML = texts.formSuccess;
                     messageElement.style.color = "green";
                     form.reset();
                 } else {
-                    messageElement.innerHTML = translations[currentLang].formError;
+                    messageElement.innerHTML = texts.formError;
                     messageElement.style.color = "red";
                 }
             })
             .catch(error => {
-                messageElement.innerHTML = translations[currentLang].formError;
+                console.error("Error:", error);
+                messageElement.innerHTML = texts.formError;
                 messageElement.style.color = "red";
             })
             .finally(() => {
