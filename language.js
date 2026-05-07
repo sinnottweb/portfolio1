@@ -38,7 +38,7 @@ const translations = {
         ctaBtn1: "Descargar CV",
         ctaBtn2: "CONSULTAME",
         
-        portTitle: "Galería de Imágenes",
+        portTitle: "Experiencias Digitales y Casos de Éxito",
         portFilter1: "Todos",
         portFilter4: "Informativo",
         portPrev: "Anterior",
@@ -54,7 +54,9 @@ const translations = {
         formError: "Hubo un error al enviar el mensaje. Intentalo de nuevo.",
         formSending: "Enviando...",
         formInvalid: "Por favor, completa todos los campos correctamente.",
-        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/"
+        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/",
+        pageTitle: "Matías Sinnott | Lic. en Diseño Multimedia & Desarrollador Web",
+        cvLink: "assets/CV/CV_Matias_Sinnott (ESP).pdf"
     },
     en: {
         navHome: "Home",
@@ -95,7 +97,7 @@ const translations = {
         ctaBtn1: "Download CV",
         ctaBtn2: "CONTACT ME",
         
-        portTitle: "Image Gallery",
+        portTitle: "Digital Experiences & Success Stories",
         portFilter1: "All",
         portFilter4: "Informative",
         portPrev: "Previous",
@@ -111,7 +113,9 @@ const translations = {
         formError: "There was an error sending the message. Please try again.",
         formSending: "Sending...",
         formInvalid: "Please fill in all fields correctly.",
-        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/?locale=en-US"
+        linkedinLink: "https://www.linkedin.com/in/matias-sinnott/?locale=en-US",
+        pageTitle: "Matías Sinnott | Multimedia Designer & Web Developer",
+        cvLink: "assets/CV/CV_Matias_Sinnott (ENG).pdf"
     }
 };
 
@@ -132,6 +136,11 @@ function setLanguage(lang, event) {
     if(event) event.preventDefault();
     currentLang = lang;
     
+    // Update Document Title
+    if (translations[currentLang]['pageTitle']) {
+        document.title = translations[currentLang]['pageTitle'];
+    }
+
     // Update texts
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');

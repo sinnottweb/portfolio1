@@ -1,5 +1,8 @@
 // Datos de las imágenes y categorías
 const galleryData = [
+  { src: 'assets/images/work/31.jpg', full: 'assets/images/work/31a.webp', category: 'informativo' },
+  { src: 'assets/images/work/32.jpg', full: 'assets/images/work/32a.webp', category: 'informativo' },
+  { src: 'assets/images/work/33.jpg', full: 'assets/images/work/33a.webp', category: 'informativo' },
   { src: 'assets/images/work/1.jpg', full: 'assets/images/work/1a.webp', category: 'informativo' },
   { src: 'assets/images/work/2.jpg', full: 'assets/images/work/2a.webp', category: 'informativo' },
   { src: 'assets/images/work/3.jpg', full: 'assets/images/work/3a.webp', category: 'informativo' },
@@ -30,6 +33,10 @@ const galleryData = [
   { src: 'assets/images/work/28.jpg', full: 'assets/images/work/28a.webp', category: 'landing' },
   { src: 'assets/images/work/29.jpg', full: 'assets/images/work/29a.webp', category: 'landing' },
   { src: 'assets/images/work/30.jpg', full: 'assets/images/work/30a.webp', category: 'landing' },
+  { src: 'assets/images/work/ui1.png', full: 'assets/images/work/ui1.png', category: 'uiux' },
+  { src: 'assets/images/work/ui2.png', full: 'assets/images/work/ui2.png', category: 'uiux' },
+  { src: 'assets/images/work/ui3.png', full: 'assets/images/work/ui3.png', category: 'uiux' },
+  { src: 'assets/images/work/ui5.png', full: 'assets/images/work/ui5.png', category: 'uiux' },
 ];
 
 // Variables globales

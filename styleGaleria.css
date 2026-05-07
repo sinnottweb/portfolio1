@@ -1,203 +1,196 @@
-/* General */
-body {
-	margin: 0;
-	font-family: sans-serif;
-	background-color: #efefef;
-  }
-  .container {
-	margin: auto;
-  }
-  .gallery .title h1 {
-	font-size: 36px;
-	margin: 0 0 30px;
-	color: #000000;
-	text-align: center;
-  }
-  
-  /* Filtros */
-  .filters {
-	display: flex;
-	justify-content: center;
-	gap: 10px;
-	margin-bottom: 30px;
-	flex-wrap: wrap; /* Permite que los botones bajen en pantallas pequeñas */
-  }
-  .filter-btn {
-	padding: 0px 40px;
-	border: none;
-	background: #f77e4f;
-	color: white;
-	cursor: pointer;
-	border-radius: 50px;
-	transition: background 0.3s;
-  }
-  .filter-btn:hover {
-	background: #fff;
-	color:#f77e4f;
-  }
-  
-  /* Galería */
-  .gallery-items {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 30px;
-	justify-content: center;
-	row-gap: 40px;
-  }
+/* General Portfolio Section */
+.gallery .title h1 {
+  font-size: 36px;
+  margin: 0 0 30px;
+  color: #000000;
+  text-align: center;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filter-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0 25px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #f77e4f;
+  background: #f77e4f;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: #fff;
+  color: #f77e4f;
+}
+
+/* Galería */
+.gallery-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: calc(25% - 15px); /* 4 columns on desktop */
+  min-width: 250px;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  transform: translateY(-5px);
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.prev-page, .next-page {
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #f77e4f;
+  background: #f77e4f;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.prev-page:hover:not(:disabled), .next-page:hover:not(:disabled) {
+  background: #fff;
+  color: #f77e4f;
+}
+
+.prev-page:disabled, .next-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  background: transparent;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 30px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsividad */
+@media (max-width: 991px) {
   .thumbnail {
-	width: 255px;
-	height: 170px;
-	overflow: hidden;
-	border-radius: 8px;
-	cursor: pointer;
-	transition: transform 0.3s ease;
+    width: calc(33.33% - 14px); /* 3 columns */
+    min-width: 0;
   }
-  .thumbnail img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.3s ease;
-  }
-  .thumbnail:hover {
-	transform: scale(1.05);
+}
+
+@media (max-width: 767px) {
+  .gallery .title h1 {
+    font-size: 28px;
   }
   
-  /* Paginación */
+  .filter-btn {
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 12px;
+  }
+
+  .gallery-items {
+    gap: 10px;
+    padding: 0 5px;
+  }
+
+  .thumbnail {
+    width: calc(50% - 5px); /* 2 columns on mobile! */
+    min-width: 0;
+    border-radius: 4px;
+  }
+
   .pagination {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	margin-top: 30px;
-	flex-wrap: wrap; /* Permite que los botones se ajusten en pantallas pequeñas */
+    gap: 10px;
   }
+
   .prev-page, .next-page {
-	padding: 0px 40px;
-	border: none;
-	background: #f77e4f;
-	color: white;
-	cursor: pointer;
-	border-radius: 50px;
-	transition: background 0.3s;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
   }
+}
 
-  .prev-page:hover, .next-page:hover {
-	padding: 0px 40px;
-	border: none;
-	background: #fff;
-	color: #f77e4f;
-	cursor: pointer;
-	border-radius: 50px;
-	transition: background 0.3s;
+@media (max-width: 480px) {
+  .thumbnail {
+    width: 100%; /* 1 column on very small phones if needed, or keep 2? User asked for 2 columns/fullscreen feel */
+    /* Let's stick to 2 columns as it looks more like a gallery */
+    width: calc(50% - 5px);
   }
-
-  .prev-page:disabled, .next-page:disabled {
-	background: #f77e4f;
-	cursor: not-allowed;
-  }
-  
-  /* Modal */
-  .modal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.8);
-	justify-content: center;
-	align-items: flex-start;
-	z-index: 1000;
-	padding: 60px 20px 20px;
-  }
-  .modal-content {
-	margin-top: 2%;
-	position: relative;
-	width: 90%;
-	max-width: 90%;
-	max-height: 95%;
-	background: #ffffff;
-	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	overflow-y: auto;
-	padding: 16px;
-  }
-  .modal-content img {
-	display: block;
-	width: 100%;
-	border-radius: 4px;
-  }
-  .close {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	font-size: 24px;
-	color: #333;
-	background: rgba(0, 0, 0, 0.1);
-	border: none;
-	border-radius: 50%;
-	width: 32px;
-	height: 32px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	transition: background 0.3s ease;
-  }
-  .close:hover {
-	background: rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-	/* Ajustes para los filtros */
-	.filters {
-	  justify-content: flex-start;
-	  gap: 5px;
-	}
-	.filter-btn {
-	  padding: 10px 20px;
-	  font-size: 14px;
-	}
-  
-	/* Ajustes para la galería */
-	.gallery-items {
-	  gap: 20px;
-	}
-	.thumbnail {
-	  width: 90%;
-	  max-width: 200px;
-	  height: auto;
-	}
-  
-	/* Ajustes para la paginación */
-	.pagination {
-	  flex-direction: column;
-	  gap: 15px;
-	}
-	.prev-page, .next-page {
-	  width: 100%;
-	  text-align: center;
-	}
-  }
-  
-  /* Estilos generales para los botones */
-  button {
-	display: inline-block;
-	font-weight: 500;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	user-select: none;
-	border: 1px solid #f77e4f;
-	padding: 0 40px;
-	font-size: 15px;
-	line-height: 48px;
-	border-radius: 50px;
-	color: #fff;
-	transition: all 0.3s ease-out;
-	box-shadow: 0px 5px 8px 0px rgba(249, 146, 78, 0.55);
-	background-color: #f77e4f; /* Fondo principal */
-	text-transform: uppercase;
-  }
+}
   

@@ -1,16 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
     <!--====== Meta tags (requeridos) ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Licenciado en diseño multimedia egresado de la UNLP me especializo en desarrollar páginas web. Vivo en la ciudad de La Plata y tengo mas de 5 años de experiencia como diseñador.">
+    <meta name="description" content="Portfolio de Matías Sinnott, Licenciado en Diseño Multimedia y Desarrollador Web con más de 5 años de experiencia. Especialista en crear sitios web, e-commerce y soluciones digitales atractivas.">
+    <meta name="keywords" content="Matías Sinnott, Desarrollador Web, Diseñador Multimedia, UI/UX, Frontend, Portfolio, Creación de Páginas Web, La Plata">
+    <meta name="author" content="Matías Sinnott">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!--====== Open Graph / LinkedIn / Facebook ======-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sinnottweb.github.io/portfolio1/">
+    <meta property="og:title" content="Matías Sinnott | Lic. en Diseño Multimedia & Desarrollador Web">
+    <meta property="og:description" content="Portfolio de Matías Sinnott. Descubrí mis proyectos destacados, experiencia en UI/UX y desarrollo web.">
+    <meta property="og:image" content="https://sinnottweb.github.io/portfolio1/assets/images/favicon.png">
+
     <!--====== Titulo ======-->
-    <title>Matías Sinnott - Diseñador Multimedia</title>
+    <title>Matías Sinnott | Lic. en Diseño Multimedia & Desarrollador Web</title>
 
  
 
@@ -185,6 +194,7 @@
                             <div class="header-social-icon">
                                 <ul>
                                     <li><a href="https://www.instagram.com/matisinnott/" target="_blank"><i class="lni-instagram-original"></i></a></li>
+                                    <li><a href="https://www.youtube.com/channel/UChnajcnTA9YuFVIUZNisuwA" target="_blank"><i class="lni lni-youtube"></i></a></li>
                                     <li><a href="https://www.linkedin.com/in/matias-sinnott/" target="_blank" data-i18n-href="linkedinLink"><i class="lni-linkedin-original"></i></a></li>
                                 </ul>
                             </div> <!-- header social -->
@@ -439,12 +449,12 @@
     <section id="call-to-action" class="call-to-action pt-125 pb-130 bg_cover" style="background-image: url(assets/images/call-to-action.jpg)">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-9">
+                <div class="col-xl-10 col-lg-11">
                     <div class="call-action-content text-center">
                         <h2 class="action-title" data-i18n="ctaTitle">¿Tenes algún proyecto en mente?</h2>
                         <p data-i18n="ctaSubtitle">Si pensas en llevar a cabo un proyecto personal, o llevar tu empresa al proximo nivel, no dudes en consultarme.</p>
                         <ul>
-                            <li><a class="main-btn custom" href="https://drive.google.com/file/d/1XSO5gN_uwqxUkFqQrXWkkmu0k1_nK6Or/view?usp=sharing" target="_blank" data-i18n="ctaBtn1">Descargar CV</a></li>
+                            <li><a class="main-btn custom" href="assets/CV/CV_Matias_Sinnott (ESP).pdf" download data-i18n="ctaBtn1" data-i18n-href="cvLink">Descargar CV</a></li>
                             <li><a class="main-btn custom-2" href="#contacto" data-i18n="ctaBtn2">CONSULTAME</a></li>
                         </ul>
                     </div> <!-- call action content -->
@@ -469,11 +479,14 @@
             
             <!-- Filtros -->
             <div class="filters">
-              <button class="filter-btn" data-category="all" data-i18n="portFilter1">Todos</button>
-              <button class="filter-btn" data-category="ecommerce">E-commerce</button>
-              <button class="filter-btn" data-category="landing">Landing</button>
-              <button class="filter-btn" data-category="informativo" data-i18n="portFilter4">Informativo</button>
-              <button class="filter-btn" data-category="uiux">UI/UX</button>
+              <div class="filter-top">
+                <button class="filter-btn" data-category="all" data-i18n="portFilter1">Todos</button>
+              </div>
+              <div class="filter-bottom">
+                <button class="filter-btn" data-category="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-category="landing">Landing</button>
+                <button class="filter-btn" data-category="informativo" data-i18n="portFilter4">Informativo</button>
+              </div>
             </div>
             
             <!-- Galería -->
@@ -603,6 +616,7 @@
                             <p class="mt-" data-i18n="footerDesc">Te invito a seguir mi trabajo en las diferentes redes sociales, si tenes alguna consulta podés enviarme un mensaje cuando lo desees.</p>
                             <ul>
                                 <li><a href="https://www.instagram.com/matisinnott/" target="_blank"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UChnajcnTA9YuFVIUZNisuwA" target="_blank"><i class="lni lni-youtube"></i></a></li>
                                 <li><a href="https://www.linkedin.com/in/matias-sinnott/" target="_blank" data-i18n-href="linkedinLink"><i class="lni-linkedin-original"></i></a></li>
                             </ul>
                         </div> <!-- footer content -->
@@ -615,7 +629,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text text-center pt-20">
-                            <p>Copyright © 2024 | Matías Sinnott</a></p>
+                            <p id="copyright-year">Copyright © <span id="current-year"></span> | Lic. Matías Sinnott</p>
                         </div> <!-- copyright text -->
                     </div>
                 </div> <!-- row -->
@@ -670,6 +684,9 @@
     <script src="language.js"></script>
     
     <script>
+        // Actualizar año actual automáticamente
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
