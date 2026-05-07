@@ -55,22 +55,13 @@ function renderGallery() {
 
   galleryContainer.innerHTML = '';
   paginatedData.forEach(item => {
-    const thumbnail = document.createElement('a');
-    thumbnail.classList.add('thumbnail', 'image-popup');
-    thumbnail.setAttribute('href', item.full);
-    thumbnail.innerHTML = `<img src="${item.src}" alt="Proyecto del portfolio de Matías Sinnott">`;
+    const thumbnail = document.createElement('div');
+    thumbnail.classList.add('thumbnail');
+    thumbnail.setAttribute('data-image', item.full);
+    thumbnail.innerHTML = `<img src="${item.src}" alt="thumbnail">`;
     galleryContainer.appendChild(thumbnail);
+    thumbnail.addEventListener('click', () => openModal(item.full));
   });
-
-  // Re-inicializar Magnific Popup para la galería
-  if (window.jQuery && window.jQuery.magnificPopup) {
-    window.jQuery('.image-popup').magnificPopup({
-      type: 'image',
-      gallery: {
-        enabled: true
-      }
-    });
-  }
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
@@ -110,7 +101,22 @@ nextPageBtn.addEventListener('click', () => {
   }
 });
 
+// Modal
+function openModal(imageSrc) {
+  const modal = document.getElementById('imageModal');
+  document.getElementById('modalImage').src = imageSrc;
+  modal.style.display = 'block';
+}
 
+document.querySelector('.close').addEventListener('click', () => {
+  document.getElementById('imageModal').style.display = 'none';
+});
+
+window.addEventListener('click', e => {
+  if (e.target === document.getElementById('imageModal')) {
+    document.getElementById('imageModal').style.display = 'none';
+  }
+});
 
 // Inicializar galería
 renderGallery(); // Iniciar la galería con la categoría predeterminada y la primera página
