@@ -32,11 +32,7 @@ const galleryData = [
   { src: 'assets/images/work/27.jpg', full: 'assets/images/work/27a.webp', category: 'ecommerce' },
   { src: 'assets/images/work/28.jpg', full: 'assets/images/work/28a.webp', category: 'landing' },
   { src: 'assets/images/work/29.jpg', full: 'assets/images/work/29a.webp', category: 'landing' },
-  { src: 'assets/images/work/30.jpg', full: 'assets/images/work/30a.webp', category: 'landing' },
-  { src: 'assets/images/work/ui1.png', full: 'assets/images/work/ui1.png', category: 'uiux' },
-  { src: 'assets/images/work/ui2.png', full: 'assets/images/work/ui2.png', category: 'uiux' },
-  { src: 'assets/images/work/ui3.png', full: 'assets/images/work/ui3.png', category: 'uiux' },
-  { src: 'assets/images/work/ui5.png', full: 'assets/images/work/ui5.png', category: 'uiux' },
+  { src: 'assets/images/work/30.jpg', full: 'assets/images/work/30a.webp', category: 'landing' }
 ];
 
 // Variables globales

@@ -1,5 +1,5 @@
 /* General Portfolio Section */
-.gallery .title h1 {
+.gallery .title h1, .gallery .title h2.h1-style {
   font-size: 36px;
   margin: 0 0 30px;
   color: #000000;
@@ -9,10 +9,12 @@
 /* Filtros */
 .filters {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .filter-bottom {
@@ -23,18 +25,19 @@
 }
 
 .filter-btn {
-  padding: 0 25px;
-  height: 40px;
-  line-height: 40px;
+  padding: 0 40px;
+  height: 48px;
+  line-height: 48px;
   border: 1px solid #f77e4f;
   background: #f77e4f;
   color: white;
   cursor: pointer;
   border-radius: 50px;
   transition: all 0.3s;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
+  box-shadow: 0px 5px 8px 0px rgba(249, 146, 78, 0.55);
 }
 
 .filter-btn:hover, .filter-btn.active {
@@ -156,6 +159,11 @@
     font-size: 28px;
   }
   
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .filter-btn {
     padding: 0 15px;
     height: 35px;

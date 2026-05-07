@@ -55,7 +55,7 @@ const translations = {
         formSending: "Enviando...",
         formInvalid: "Por favor, completa todos los campos correctamente.",
         linkedinLink: "https://www.linkedin.com/in/matias-sinnott/",
-        pageTitle: "Matías Sinnott | Lic. en Diseño Multimedia & Desarrollador Web",
+        pageTitle: "Matías Sinnott | Lic. en Diseño y Desarrollo Web",
         cvLink: "assets/CV/CV_Matias_Sinnott (ESP).pdf"
     },
     en: {
