@@ -48,7 +48,11 @@ const translations = {
         contactSubtitle: "Comunicate por cualquiera de los siguientes medios así puedo ayudarte a resolver tus necesidades.",
         contactBtn: "Enviar Consulta",
         
-        footerDesc: "Te invito a seguir mi trabajo en las diferentes redes sociales, si tenes alguna consulta podés enviarme un mensaje cuando lo desees."
+        footerDesc: "Te invito a seguir mi trabajo en las diferentes redes sociales, si tenes alguna consulta podés enviarme un mensaje cuando lo desees.",
+        
+        formSuccess: "¡Mensaje enviado con éxito!",
+        formError: "Hubo un error al enviar el mensaje. Intentalo de nuevo.",
+        formSending: "Enviando..."
     },
     en: {
         navHome: "Home",
@@ -99,7 +103,11 @@ const translations = {
         contactSubtitle: "Communicate through any of the following means so I can help you solve your needs.",
         contactBtn: "Send Message",
         
-        footerDesc: "I invite you to follow my work on different social networks, if you have any questions you can send me a message whenever you want."
+        footerDesc: "I invite you to follow my work on different social networks, if you have any questions you can send me a message whenever you want.",
+
+        formSuccess: "Message sent successfully!",
+        formError: "There was an error sending the message. Please try again.",
+        formSending: "Sending..."
     }
 };
 

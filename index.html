@@ -65,6 +65,11 @@
                 border-left: 1px solid #ccc;
             }
         }
+        .form-message {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -547,7 +552,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="contact-form pt-30">
-                    <form action="https://formsubmit.co/sinnottweb@gmail.com" method="POST" id="contact-form">
+                    <form action="https://formsubmit.co/ajax/sinnottweb@gmail.com" method="POST" id="contact-form">
                         <!-- Configuraciones de FormSubmit -->
                         <input type="hidden" name="_subject" value="Nuevo Lead - Portfolio Matías Sinnott">
                         <input type="hidden" name="_template" value="table">
@@ -667,6 +672,52 @@
     <script src="assets/js/main.js"></script>
     <script src="scriptGaleria.js"></script>
     <script src="language.js"></script>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const messageElement = form.querySelector('.form-message');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            // Mostrar mensaje de enviando
+            messageElement.innerHTML = translations[currentLang].formSending;
+            messageElement.style.color = "#f77e4f";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            fetch(form.action, {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(res => {
+                if (res.success === "true" || res.success === true) {
+                    messageElement.innerHTML = translations[currentLang].formSuccess;
+                    messageElement.style.color = "green";
+                    form.reset();
+                } else {
+                    messageElement.innerHTML = translations[currentLang].formError;
+                    messageElement.style.color = "red";
+                }
+            })
+            .catch(error => {
+                messageElement.innerHTML = translations[currentLang].formError;
+                messageElement.style.color = "red";
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 
