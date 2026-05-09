@@ -56,7 +56,7 @@ const translations = {
         formInvalid: "Por favor, completa todos los campos correctamente.",
         linkedinLink: "https://www.linkedin.com/in/matias-sinnott/",
         pageTitle: "Matías Sinnott | Lic. en Diseño y Desarrollo Web",
-        cvLink: "assets/CV/CV_Matias_Sinnott (ESP).pdf"
+        cvLink: "assets/cv/CV_Matias_Sinnott (ESP).pdf"
     },
     en: {
         navHome: "Home",
@@ -115,7 +115,7 @@ const translations = {
         formInvalid: "Please fill in all fields correctly.",
         linkedinLink: "https://www.linkedin.com/in/matias-sinnott/?locale=en-US",
         pageTitle: "Matías Sinnott | Multimedia Designer & Web Developer",
-        cvLink: "assets/CV/CV_Matias_Sinnott (ENG).pdf"
+        cvLink: "assets/cv/CV_Matias_Sinnott (ENG).pdf"
     }
 };
 
